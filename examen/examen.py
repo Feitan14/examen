@@ -3,6 +3,7 @@ import sqlite3
 
 # crear una conexión a la base de datos
 conn = sqlite3.connect('BDExportaciones.db')
+c = conn.cursor()
 
 # crear una tabla si aún no existe
 conn.execute('''CREATE TABLE IF NOT EXISTS TBPedimentos
@@ -39,7 +40,8 @@ def buscar_pedimentos():
 
 # crear la ventana principal de Tkinter
 root = tk.Tk()
-
+root.title("Exportaciones")
+root.geometry("500x400")
 # agregar un campo de entrada para el transporte
 transporte_label = tk.Label(root, text='Transporte:')
 transporte_label.pack()
@@ -77,6 +79,6 @@ pedimentos_listbox.pack()
 # agregar una etiqueta para mostrar el estado de la operación
 status_label = tk.Label(root, text="")
 status_label.pack()
-
+        
 # iniciar el bucle principal de Tkinter
 root.mainloop()
